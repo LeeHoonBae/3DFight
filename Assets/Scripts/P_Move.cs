@@ -54,7 +54,7 @@ public class P_Move : MonoBehaviour
         {
             Weapon_Change(2);
         }
-    }
+    }   // 기타 입력(무기변경)
 
     void Weapon_Change(int ch_num)  // 무기 변경
     {

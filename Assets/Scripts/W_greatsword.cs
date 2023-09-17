@@ -48,10 +48,10 @@ public class W_greatsword : MonoBehaviour
             attack();   // 아니면 공격을 한다
         }
 
-        Timer();    // 게임 시간 흐름
+        Timer();    // 공격 시간 제어
     }
 
-    void Timer()
+    void Timer()    // 공격 시간 제어
     {
         if (linkTimer > 0)
         {
@@ -59,7 +59,7 @@ public class W_greatsword : MonoBehaviour
         }
     }
 
-    void charge_input()   // 공격 준비
+    void charge_input()   // 차징 입력 받기
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -70,6 +70,7 @@ public class W_greatsword : MonoBehaviour
                 linkTime = 1;
             }
         }
+
         if (Input.GetMouseButton(0))    // 무기를 차징하는 시간
         {
             if (Charge_Now < Charge_Max)
@@ -81,6 +82,7 @@ public class W_greatsword : MonoBehaviour
                 Charge_Now = Charge_Max;
             }
         }
+
         if (Input.GetMouseButtonUp(0))  // 차징을 끝내고 공격
         {
             isAtk = true;
@@ -91,6 +93,7 @@ public class W_greatsword : MonoBehaviour
     {
         if (linkTime == 1)  // 첫번째 차징
         {
+            // 대검 모션 넣기
             transform.Rotate(Vector3.up * Time.deltaTime * attack_Speed);
         }
         else if (linkTime == 2)  // 두번째 차징
@@ -128,7 +131,7 @@ public class W_greatsword : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)  // 데미지 적용
     {
         if (collision.gameObject.layer == 6)
         {

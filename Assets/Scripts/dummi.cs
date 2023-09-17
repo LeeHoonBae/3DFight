@@ -26,7 +26,7 @@ public class dummi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HP_Now < HP_Max)
+        if (HP_Now < HP_Max)    // 풀피가 아닐 때 회복 타이머
         {
             Heal_Time();
         }
@@ -35,18 +35,18 @@ public class dummi : MonoBehaviour
     void Heal_Time()
     {
         Timer += Time.deltaTime;
-        if (Regeneration_Time < Timer)
+        if (Regeneration_Time < Timer)  // 회복 타이머가 되면 체력 회복 후 타이머 초기화
         {
             HP_Now = HP_Max;
             Timer = 0;
         }
     }
 
-    public void Damage(int dam)
+    public void Damage(int dam) // 공격 적용 후 회복 타이머 초기화
     {
         HP_Now -= dam;
-        Timer = 0;
         slider_set();
+        Timer = 0;
     }
 
     void slider_set()
