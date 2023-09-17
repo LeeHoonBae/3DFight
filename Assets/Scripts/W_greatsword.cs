@@ -39,28 +39,27 @@ public class W_greatsword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isAtk)
+        if (!isAtk) // 공격상태가 아니면
         {
-
-            charge_input();
+            charge_input(); // 입력을 받는다
         }
         else
         {
-            attack();
+            attack();   // 아니면 공격을 한다
         }
 
-        Timer();
+        Timer();    // 게임 시간 흐름
     }
 
     void Timer()
     {
         if (linkTimer > 0)
         {
-            linkTimer -= Time.deltaTime;
+            linkTimer -= Time.deltaTime;    // 연계공격 가능 시간 감소
         }
     }
 
-    void charge_input()
+    void charge_input()   // 공격 준비
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -86,7 +85,7 @@ public class W_greatsword : MonoBehaviour
         {
             isAtk = true;
         }
-    }   // 공격 준비
+    }
 
     void attack()   // 공격
     {
@@ -134,7 +133,7 @@ public class W_greatsword : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             Debug.Log("데미지");
-            // collision.gameObject.GetComponent<dummi>().Damage(Damage);
+            collision.gameObject.GetComponent<dummi>().Damage(Damage);
         }
         if (collision.gameObject.layer == 8)
         {

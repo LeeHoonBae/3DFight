@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class P_Move : MonoBehaviour
 {
-    [SerializeField]
-    Rigidbody rb;
+    // [SerializeField]
+    // Rigidbody rb;
     [SerializeField]
     Transform tr;
 
@@ -25,7 +25,7 @@ public class P_Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
+        // rb = this.GetComponent<Rigidbody>();
         tr = this.GetComponent<Transform>();
         Weapon_now = Weapon_list[0];
     }
