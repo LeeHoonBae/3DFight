@@ -15,6 +15,9 @@ public class P_Move : MonoBehaviour
     float Sprint;
 
     [SerializeField]
+    float RotateSpeed;
+
+    [SerializeField]
     GameObject Player;
 
     [SerializeField]
@@ -34,8 +37,16 @@ public class P_Move : MonoBehaviour
     void Update()
     {
         Move();
+        MouseRotation();
 
         InputElse();
+    }
+
+    void MouseRotation()
+    {
+        float Rotate_Y = tr.eulerAngles.y + Input.GetAxis("Mouse X") * RotateSpeed * Time.deltaTime;
+
+        tr.eulerAngles = new Vector3(0, Rotate_Y, 0);
     }
 
     void InputElse()
